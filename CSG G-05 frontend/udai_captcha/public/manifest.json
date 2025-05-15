@@ -1,0 +1,112 @@
+{
+    "dir": "ltr",
+    "lang": "en-gb",
+    "name": "Aadhaar Unique Identification Authority of India.",
+    "scope": "/",
+    "display": "browser",
+    "start_url": "./",
+    "short_name": "Aadhaar",
+    "theme_color": "transparent",
+    "description": "UIDAI is mandated to issue an easily verifiable 12 digit random number as Unique Identity - Aadhaar to all Residents of India.",
+    "orientation": "any",
+    "background_color": "transparent",
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "/images/pwa/4f3d2b78-cecc-cb39-f11f-24c89665fbe5.webPlatform.png",
+            "sizes": "44x44",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/faf3295c-4511-50ce-0a55-9652db32ca54.webPlatform.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/08997fa9-303c-a984-5c25-d95581696423.webPlatform.png",
+            "sizes": "1240x600",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/59f4ffb7-4aed-dda0-fd71-4ec2c5c597fe.webPlatform.png",
+            "sizes": "300x300",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/76224c39-bb6b-8f27-08c1-8b5f1267aece.webPlatform.png",
+            "sizes": "150x150",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/0e1a8aff-7ec4-aea6-be71-d02fcd04c72b.webPlatform.png",
+            "sizes": "88x88",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/ab569c62-8e51-e7ab-c127-f2fc5d92b2c8.webPlatform.png",
+            "sizes": "24x24",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/d63f1da9-2afe-169b-304c-e7dfdeaa9cb0.webPlatform.png",
+            "sizes": "50x50",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/dd4b26cb-b521-e116-48db-d5c1581b7067.webPlatform.png",
+            "sizes": "620x300",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/30600426-0c3c-a45a-e3cb-d8fabef7da15.webPlatform.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/9f032160-8da1-be16-6c78-18f78eb62201.webPlatform.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/e634c8db-36dc-b27f-b4c9-99a6c02fb6a2.webPlatform.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/4c6f904b-dc10-4ef2-abbd-5b2becd5b0a8.webPlatform.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/c3c07a17-cb0d-7087-087f-061907376266.webPlatform.png",
+            "sizes": "36x36",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/d04ec12b-8b0c-5a5c-04ee-5ee50d8126c7.webPlatform.png",
+            "sizes": "1024x1024",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/a8b77111-5815-8397-b3b0-5a8aeb8e465e.webPlatform.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/3cc54ae4-6945-41ec-5ea3-0095a59377fd.webPlatform.png",
+            "sizes": "152x152",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/9c6fc1e9-3860-1582-1f2f-9c9fbef58068.webPlatform.png",
+            "sizes": "120x120",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/pwa/6a4a34e1-38b1-4213-8a96-fc0a87d907cf.webPlatform.png",
+            "sizes": "76x76",
+            "type": "image/png"
+        }
+    ]
+}

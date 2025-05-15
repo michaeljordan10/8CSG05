@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aadhaar Document Upload</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input[type="text"], input[type="file"] { width: 100%; padding: 8px; }
+        .captcha-container { display: flex; gap: 10px; align-items: center; }
+        #captchaImage { cursor: pointer; border: 1px solid #ddd; }
+        .error { color: red; margin-top: 5px; }
+        .success { color: green; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <h2>Aadhaar Document Upload</h2>
+    
+    <form id="uploadForm" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>Aadhaar Number:</label>
+            <input type="text" id="aadhaar" name="aadhaar" required 
+                   pattern="\d{12}" title="12-digit Aadhaar number">
+        </div>
+
+        <div class="form-group">
+            <label>Document (PDF only):</label>
+            <input type="file" id="document" name="document" accept=".pdf" required>
+        </div>
+
+        <div class="form-group">
+            <label>CAPTCHA:</label>
+            <div class="captcha-container">
+                <img id="captchaImage" src="" alt="CAPTCHA" onclick="refreshCaptcha()">
+                <!-- <button type="button" onclick="playAudio()">🔊</button> -->
+                <input type="text" id="captchaCode" name="captchaCode" required>
+            </div>
+        </div>
+
+        <button type="submit">Upload Document</button>
+        <div id="message"></div>
+    </form>
+
+    <script>
+        let captchaToken = '';
+
+        // Fetch initial CAPTCHA
+        fetch('http://127.0.0.1:5000/api/captcha')
+            .then(response => response.json())
+            .then(data => {
+                captchaToken = data.token;
+                document.getElementById('captchaImage').src = `data:image/png;base64,${data.image}`;
+            });
+
+        function refreshCaptcha() {
+            fetch('http://127.0.0.1:5000/api/captcha')
+                .then(response => response.json())
+                .then(data => {
+                    captchaToken = data.token;
+                    document.getElementById('captchaImage').src = `data:image/png;base64,${data.image}`;
+                    document.getElementById('captchaCode').value = '';
+                });
+        }
+
+        function playAudio() {
+            const audio = new Audio(`http://127.0.0.1:5000/api/captcha/audio/${captchaToken}`);
+            audio.play();
+        }
+
+        document.getElementById('uploadForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData();
+            formData.append('aadhaar', document.getElementById('aadhaar').value);
+            formData.append('document', document.getElementById('document').files[0]);
+            formData.append('captchaToken', captchaToken);
+            formData.append('captchaCode', document.getElementById('captchaCode').value);
+
+            try {
+                const response = await fetch('http://127.0.0.1:5000/api/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+                
+                if (response.ok) {
+                    showMessage('Document uploaded successfully!', 'success');
+                    document.getElementById('uploadForm').reset();
+                    refreshCaptcha();
+                } else {
+                    showMessage(result.error || 'Upload failed', 'error');
+                    refreshCaptcha();
+                }
+            } catch (error) {
+                showMessage('Network error', 'error');
+            }
+        });
+
+        function showMessage(text, type) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.textContent = text;
+            messageDiv.className = type;
+        }
+    </script>
+</body>
+</html>
